@@ -1,4 +1,6 @@
 import PIL
+import numpy as np
+
 def show_dataset(thumb_size, cols, rows, ds):
     mosaic = PIL.Image.new(mode='RGB', size=(thumb_size*cols + (cols-1), 
                                              thumb_size*rows + (rows-1)))
