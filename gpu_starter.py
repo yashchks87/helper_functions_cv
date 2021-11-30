@@ -7,3 +7,5 @@ def start_gpus(gpu_list):
     AUTO = tf.data.experimental.AUTOTUNE
     print('Returning objects as strategy, replicas and auto in same order.')
     return strategy, REPLICAS, AUTO
+if __name__ == '__main__':
+    start_gpus()
