@@ -1,3 +1,7 @@
+# Author: Yash Choksi
+# Date: Mar 06th 2022
+
+
 import tensorflow as tf
 def tpu_start(device_name):
     device = device_name
