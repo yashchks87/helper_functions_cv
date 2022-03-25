@@ -14,3 +14,6 @@ class CallbackForSavingModelWeights(keras.callbacks.Callback):
     def on_epoch_end(self, epoch, logs={}):
         # Call self model method to save weights on every epoch
         self.model.save_weights(f'{self.path}{epoch+1}.h5')
+
+if __name__ == '__main__':
+    CallbackForSavingModelWeights()
