@@ -3,7 +3,7 @@
 
 import tensorflow as tf
 from tensorflow import keras
-impor os
+import os
 
 # This class generates callback class which is called during model.fit method
 class CallbackForSavingModelWeights(keras.callbacks.Callback):
