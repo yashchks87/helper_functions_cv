@@ -19,17 +19,17 @@ def show_dataset(thumb_size, cols, rows, ds):
       # If only image is present it will go to except block
     except:
       img = data
-      # to get co-ordinate position ix will look at x axis and iy will look at y axis
-      ix  = idx % cols
-      iy  = idx // cols
-      # Get the image and change data type to uint8
-      img = np.clip(img.numpy() * 255, 0, 255).astype(np.uint8)
-      img = PIL.Image.fromarray(img)
-      # image resizing upto the given fixed size
-      img = img.resize((thumb_size, thumb_size), resample=PIL.Image.BILINEAR)
-      # paste created image to the given x-y place with given size.
-      mosaic.paste(img, (ix*thumb_size + ix, 
-                         iy*thumb_size + iy))
+    # to get co-ordinate position ix will look at x axis and iy will look at y axis
+    ix  = idx % cols
+    iy  = idx // cols
+    # Get the image and change data type to uint8
+    img = np.clip(img.numpy() * 255, 0, 255).astype(np.uint8)
+    img = PIL.Image.fromarray(img)
+    # image resizing upto the given fixed size
+    img = img.resize((thumb_size, thumb_size), resample=PIL.Image.BILINEAR)
+    # paste created image to the given x-y place with given size.
+    mosaic.paste(img, (ix*thumb_size + ix, 
+                       iy*thumb_size + iy))
 
 
   display(mosaic)
