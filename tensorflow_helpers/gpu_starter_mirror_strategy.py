@@ -5,11 +5,6 @@
 import os
 import tensorflow as tf
 def start_gpus(gpu_list):
-	"""
-	This function will initialize GPUs with mirrored strategy. We can still use it with the 1 GPU.
-	Arguements:
-	gpu_list: string format with list of gpu ids. example: "0,1"
-	"""
 	# Must have initialization with GPU list.
     os.environ['CUDA_VISIBLE_DEVICES'] = gpu_list
     # This will initiate mirrorstrategy with tensorflow
