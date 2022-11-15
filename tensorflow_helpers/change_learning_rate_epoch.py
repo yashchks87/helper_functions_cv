@@ -15,7 +15,6 @@ class ChangeLR(keras.callbacks.Callback):
                     self.new_dict[y] = lrs[x]
     def on_epoch_begin(self, epoch, logs):
         K.set_value(self.model.optimizer.learning_rate, self.new_dict[epoch])
-        print(self.model.optimizer.learning_rate)
 
 if __name__ == '__main__':
     ChangeLR()
