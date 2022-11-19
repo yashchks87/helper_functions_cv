@@ -1,13 +1,17 @@
 # Author: Yash Choksi
 # Date: Mar 06th 2022
+# Updated: Nov 18th 2022
 
 # importing libraries
 import os
 import tensorflow as tf
 def start_gpus(gpu_list):
 	# Must have initialization with GPU list.
-    os.environ['CUDA_VISIBLE_DEVICES'] = gpu_list
+    physical_devices = tf.config.list_physical_devices('GPU')
+    final_gpu_list = [physical_devices[x] for x in range(len(physical_devices)) if x in gpu_list]
     # This will initiate mirrorstrategy with tensorflow
+    tf.config.set_visible_devices(final_gpu_list, 'GPU')
+    logical_gpus = tf.config.list_logical_devices('GPU')
     strategy = tf.distribute.MirroredStrategy()
     # As data and model has to be copied on all of GPUs.
     REPLICAS = strategy.num_replicas_in_sync
