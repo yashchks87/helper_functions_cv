@@ -31,5 +31,4 @@ def get_data(**kwargs):
         'prefetch': True,
         'batch_size': 32 or 64
     }
-
 """
