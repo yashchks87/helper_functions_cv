@@ -20,7 +20,6 @@ def get_data(**kwargs):
     if kwargs['prefetch']:
         tensor = tensor.prefetch(AUTO)
     return tensor
-
 """
     Dict exmaple:
     args_dict = {
