@@ -6,6 +6,20 @@
 import os
 import tensorflow as tf
 def start_gpus(gpu_list):
+    """
+    This function gives back mirrorstrategy values and gives strategy,
+    replicas and auto as variable
+    Args:
+        gpu_list: Python list using which has gpu number is specified and you can 
+        use those gpu not all.
+    Returns:
+        strategy: Mirrorstrategy varible
+        REPLICAS: How many gpus in parallel you wanna use
+        AUTO: Mostly used as a part of prefetching values.
+    Pissible bugs:
+        Wants to remove os.environ support so figuring how we can use this only 
+        without using any GPU at all.
+    """
 	# Must have initialization with GPU list.
     physical_devices = tf.config.list_physical_devices('GPU')
     final_gpu_list = [physical_devices[x] for x in range(len(physical_devices)) if x in gpu_list]
