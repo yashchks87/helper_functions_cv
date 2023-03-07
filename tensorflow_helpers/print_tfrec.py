@@ -1,6 +1,7 @@
 # importing libraries
 import tensorflow as tf
 
+
 def print_tensorflow_record(file_path):
     # get file_path to dataset
     raw_dataset = tf.data.TFRecordDataset(file_path)
@@ -9,6 +10,7 @@ def print_tensorflow_record(file_path):
         example = tf.train.Example()
         example.ParseFromString(raw_record.numpy())
         print(example)
-        
-if '__name__' == '__main__':
+
+
+if "__name__" == "__main__":
     print_tensorflow_record()

@@ -1,4 +1,4 @@
-# This class inherit keras callback class and it does is it calculate false positive rate 
+# This class inherit keras callback class and it does is it calculate false positive rate
 # on every epoch for training and validation set
 class CallbackForFalsePositive(keras.callbacks.Callback):
     # Constructor function takes traing and validation tfrec path
@@ -29,6 +29,7 @@ class CallbackForFalsePositive(keras.callbacks.Callback):
         self.val_data = val_img
         self.val_g_t = val_label
         self.train_false_positive_rates, self.val_false_positive_rates = [], []
+
     # This method will be called on epoch end
     def on_epoch_end(self, epoch, logs={}):
         # Predicts train and val
@@ -38,5 +39,5 @@ class CallbackForFalsePositive(keras.callbacks.Callback):
         train_f_p = test_false_positive_metric(self.train_g_t, train_predicted)
         val_f_p = test_false_positive_metric(self.val_g_t, val_predicted)
         # Printing.....
-        print(f'\nTrain false positive rate: {train_f_p.numpy()}')    
-        print(f'\nVal false positive rate: {val_f_p.numpy()}')      
+        print(f"\nTrain false positive rate: {train_f_p.numpy()}")
+        print(f"\nVal false positive rate: {val_f_p.numpy()}")

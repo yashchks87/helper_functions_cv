@@ -1,7 +1,9 @@
 class CreateCustomDataset(Dataset):
     def __init__(self, data_tuples, size_params, train=True):
         self.data_tuples = data_tuples
-        self.image_paths, self.labels = [x[0] for x in data_tuples], [x[1] for x in data_tuples]
+        self.image_paths, self.labels = [x[0] for x in data_tuples], [
+            x[1] for x in data_tuples
+        ]
         self.size_params = size_params
         self.train = train
 
@@ -30,6 +32,6 @@ class CreateCustomDataset(Dataset):
             return img, self.labels[idx]
         else:
             return img
-    
+
     def get_labels(self):
         return self.labels
