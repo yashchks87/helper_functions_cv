@@ -27,6 +27,8 @@ def start_gpus(gpu_list):
     final_gpu_list = [
         physical_devices[x] for x in range(len(physical_devices)) if x in gpu_list
     ]
+    for gpu in final_gpu_list:
+        tf.config.experimental.set_memory_growth(gpu, True)
     # This will initiate mirrorstrategy with tensorflow
     tf.config.set_visible_devices(final_gpu_list, "GPU")
     logical_gpus = tf.config.list_logical_devices("GPU")
